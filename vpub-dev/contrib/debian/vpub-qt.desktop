@@ -1,0 +1,12 @@
+[Desktop Entry]
+Encoding=UTF-8
+Name=Vpub
+Comment=Vpub P2P Cryptocurrency
+Comment[fr]=Vpub, monnaie virtuelle cryptographique pair à pair
+Comment[tr]=Vpub, eşten eşe kriptografik sanal para birimi
+Exec=vpub-qt %u
+Terminal=false
+Type=Application
+Icon=vpub128
+MimeType=x-scheme-handler/vpub;
+Categories=Office;Finance;

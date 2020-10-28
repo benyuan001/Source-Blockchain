@@ -1,0 +1,26 @@
+[Unit]
+Description=Vpub's distributed currency daemon
+After=network.target
+
+[Service]
+User=vpub
+Group=vpub
+
+Type=forking
+PIDFile=/var/lib/vpubd/vpubd.pid
+
+ExecStart=/usr/bin/vpubd -daemon -pid=/var/lib/vpubd/vpubd.pid \
+          -conf=/etc/vpub/vpub.conf -datadir=/var/lib/vpubd
+
+ExecStop=-/usr/bin/vpub-cli -conf=/etc/vpub/vpub.conf \
+         -datadir=/var/lib/vpubd stop
+
+Restart=always
+PrivateTmp=true
+TimeoutStopSec=60s
+TimeoutStartSec=2s
+StartLimitInterval=120s
+StartLimitBurst=5
+
+[Install]
+WantedBy=multi-user.target
